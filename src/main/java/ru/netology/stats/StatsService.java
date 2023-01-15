@@ -3,16 +3,17 @@ package ru.netology.stats;
 public class StatsService {
 
     public int samOfAllSales(int[] sales) {
-        int maxSales = 8 + 15 + 13 + 15 + 17 + 20 + 19 + 20 + 7 + 14 + 14 + 18;
+        int maxSales = 0;
+        for (int sale : sales) {
+            maxSales += sale;
+        }
         //сумма всех продаж
         return maxSales;
     }
 
     public int averageMonthlyAllSales(int[] sales) {
-        int maxSales = 8 + 15 + 13 + 15 + 17 + 20 + 19 + 20 + 7 + 14 + 14 + 18;
-        //средняя сумма продаж вмесяц
-        maxSales /= 12;
-        return maxSales;
+        int maxSales = 0;
+        return samOfAllSales(sales) / 12;
     }
 
     public int maxSalesPerMonth(int[] sales) {
