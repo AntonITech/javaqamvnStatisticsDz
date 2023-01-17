@@ -39,12 +39,13 @@ public class StatsService {
     }
 
     public int monthBelowAverage(int[] sales) {
-        int sum = 8 + 15 + 13 + 15 + 17 + 20 + 19 + 20 + 7 + 14 + 14 + 18;
-        int nums = sum / 12;
+        int sum;
+        int maxSales = 0;
+        sum = samOfAllSales(sales) / 12;
 
         int counter = 0;
         for (long sale : sales) {
-            if (sale < nums) {
+            if (sale < averageMonthlyAllSales(sales)) {
                 counter++;
             }
         }
@@ -52,9 +53,13 @@ public class StatsService {
     }
 
     public int monthUndBelowAverage(int[] sales) {
+        int sum;
+        int maxSales = 0;
+        sum = samOfAllSales(sales) / 12;
+
         int counter = 0;
-        for (long sale : sales) {
-            if (sale > averageMonthlyAllSales(sales)) {
+        for (int sale : sales) {
+            if (sale > sum) {
                 counter++;
             }
         }
